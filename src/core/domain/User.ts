@@ -10,8 +10,8 @@ export class User {
 
   public lastName: string;
 
-  constructor(eawData?: Partial<User>) {
-    Object.assign(this, eawData);
+  constructor(rawData?: Partial<User>) {
+    Object.assign(this, rawData);
   }
 
   validate() {
