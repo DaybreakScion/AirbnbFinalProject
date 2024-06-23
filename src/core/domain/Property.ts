@@ -2,9 +2,16 @@ import { PropertyType } from './PropertyType';
 import { User } from './User';
 import { Address } from './Address';
 
+export enum PropertyCategory {
+  ownhouse,
+  apartment
+}
+
 export class Property {
 
   public id: number;
+
+  public category: PropertyCategory;
 
   public type: PropertyType;
 
@@ -17,6 +24,10 @@ export class Property {
   public price: number;
 
   public accommodation: number;
+
+  public isPetFriendly: boolean;
+
+  public isTrending: boolean;
 
   constructor(rawData?: Partial<Property>) {
     if (rawData?.owner) {

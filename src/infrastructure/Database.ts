@@ -1,5 +1,6 @@
 import { Property } from "../core/domain/Property";
 import { PropertyType } from "../core/domain/PropertyType";
+import { Reservation } from "../core/domain/Reservation";
 import { User } from "../core/domain/User";
 
 export class Collection<T> {
@@ -59,6 +60,7 @@ export class DataSource {
   public readonly users = new Collection<User>;
   public readonly properties = new Collection<Property>;
   public readonly propertyTypes = new Collection<PropertyType>;
+  public readonly reservations = new Collection<Reservation>;
 
   private static _instance: DataSource;
 

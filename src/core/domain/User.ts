@@ -1,6 +1,13 @@
+enum UserRole {
+  customer,
+  manager
+}
+
 export class User {
 
   public id: number;
+  
+  public role: UserRole;
 
   public email: string;
 
