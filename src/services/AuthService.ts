@@ -7,17 +7,31 @@ export class LoginFailedException extends Error {
   }
 }
 
-export class AuthService {
+export class InvalidPasswordException extends Error {
+  constructor() {
+    super('Password must contain both letters and numbers');
+  }
+}
 
-  constructor(
-    private readonly userRepository: IUserRepository,
-  ) {}
+export class AuthService {
+  constructor(private readonly userRepository: IUserRepository) {}
+
+  async register(email: string, password: string, firstName: string, lastName: string): Promise<User> {
+    if (!/^(?=.*[a-zA-Z])(?=.*\d)/.test(password)) {
+      throw new InvalidPasswordException();
+    }
+
+    const user = new User({ email, firstName, lastName });
+    user.validate();
+    await user.setPassword(password); // Hash the password
+    return this.userRepository.save(user);
+  }
 
   async login(email: string, password: string): Promise<User> {
     const user = await this.userRepository.fetchByEmail(email);
-
-    if (!user) throw new LoginFailedException();
-    if (user.password !== password) throw new LoginFailedException();
+    if (!user || !(await user.comparePassword(password))) {
+      throw new LoginFailedException();
+    }
     return user;
   }
 }

@@ -2,9 +2,11 @@ import { Property } from "../core/domain/Property";
 import { PropertyType } from "../core/domain/PropertyType";
 import { Reservation } from "../core/domain/Reservation";
 import { User } from "../core/domain/User";
+import { PropertyReview } from "../core/domain/PropertyReview";
+import { CustomerReview } from "../core/domain/CustomerReview";
+import { Inbox } from "../core/domain/Inbox";
 
 export class Collection<T> {
-
   private items: T[] = [];
   private lastId = 1;
 
@@ -57,10 +59,13 @@ export class Collection<T> {
 }
 
 export class DataSource {
-  public readonly users = new Collection<User>;
-  public readonly properties = new Collection<Property>;
-  public readonly propertyTypes = new Collection<PropertyType>;
-  public readonly reservations = new Collection<Reservation>;
+  public readonly users = new Collection<User>();
+  public readonly properties = new Collection<Property>();
+  public readonly propertyTypes = new Collection<PropertyType>();
+  public readonly reservations = new Collection<Reservation>();
+  public readonly propertyReviews = new Collection<PropertyReview>();
+  public readonly customerReviews = new Collection<CustomerReview>();
+  public readonly inboxes = new Collection<Inbox>();
 
   private static _instance: DataSource;
 

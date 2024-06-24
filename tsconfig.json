@@ -4,7 +4,7 @@
       "ESNext"
     ],
     "types": [
-      "node",
+      "node"
     ],
     "module": "commonjs",
     "moduleResolution": "node",
