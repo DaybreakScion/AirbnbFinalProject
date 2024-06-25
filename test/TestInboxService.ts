@@ -2,7 +2,7 @@
 import { DataSource } from "../src/infrastructure/Database";
 import { InboxRepository } from "../src/infrastructure/InboxRepository";
 import { InboxService } from "../src/services/InboxService";
-import { Inbox, ChatHistory } from "../src/core/domain/Inbox";
+import { ChatHistory } from "../src/core/domain/Inbox";
 
 const dataSource = DataSource.instance;
 const inboxRepository = new InboxRepository();

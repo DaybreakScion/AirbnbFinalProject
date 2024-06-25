@@ -3,9 +3,8 @@ import { DataSource } from '../src/infrastructure/Database';
 import { PropertyReviewRepository } from '../src/infrastructure/PropertyReviewRepository';
 import { PropertyReviewService } from '../src/services/PropertyReviewService';
 import { PropertyReview } from '../src/core/domain/PropertyReview';
-import { Property } from '../src/core/domain/Property';
+import { Property, PropertyCategory } from '../src/core/domain/Property';
 import { PropertyType } from '../src/core/domain/PropertyType';
-import { PropertyCategory } from '../src/core/domain/Property';
 import { User } from '../src/core/domain/User';
 
 // Initialize the data source and repositories
